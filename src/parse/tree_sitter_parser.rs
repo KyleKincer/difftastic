@@ -77,6 +77,7 @@ extern "C" {
     fn tree_sitter_elm() -> ts::Language;
     fn tree_sitter_elvish() -> ts::Language;
     fn tree_sitter_erlang() -> ts::Language;
+    fn tree_sitter_fourd() -> ts::Language;
     fn tree_sitter_fsharp() -> ts::Language;
     fn tree_sitter_gleam() -> ts::Language;
     fn tree_sitter_go() -> ts::Language;
@@ -409,6 +410,16 @@ pub(crate) fn from_language(language: guess::Language) -> TreeSitterConfig {
                     include_str!("../../vendored_parsers/highlights/erlang.scm"),
                 )
                 .unwrap(),
+                sub_languages: vec![],
+            }
+        }
+        FourD => {
+            let language = unsafe { tree_sitter_fourd() };
+            TreeSitterConfig {
+                language,
+                atom_nodes: HashSet::new(),
+                delimiter_tokens: vec![("(", ")"), ("[", "]")],
+                highlight_query: ts::Query::new(language, "").unwrap(),
                 sub_languages: vec![],
             }
         }
