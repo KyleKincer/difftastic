@@ -1,0 +1,62 @@
+{
+  "name": "tree-sitter-4dm",
+  "version": "2.11.0",
+  "description": "Atom language support for 4D",
+  "main": "index.js",
+  "types": "bindings/node",
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miyako/tree-sitter-4dm.git"
+  },
+  "tree-sitter": [
+    {
+      "scope": "4dm",
+      "file-types": [
+        "4dm"
+      ]
+    }
+  ],
+  "keywords": [
+    "4D",
+    "ORDA",
+    "tree-sitter"
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "author": "miyako",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miyako/tree-sitter-4dm/issues"
+  },
+  "homepage": "https://github.com/miyako/tree-sitter-4dm#readme",
+  "dependencies": {
+    "npm-check-updates": "^13.1.5",
+    "node-gyp": "^9.0.0",
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.16.9",
+    "prebuildify": "^6.0.0"
+  }
+}
